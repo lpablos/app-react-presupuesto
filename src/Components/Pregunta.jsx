@@ -1,16 +1,43 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState} from 'react'
+import Error from './Error'
 
-const Pregunta = () => {
+const Pregunta = ({setPresupuesto, setRestante}) => {
+    //Variables
+    const [cantidad, setCantidad] = useState(0)
+    const [error, setError] = useState(false)
+
+    // Funciones
+    const definirPresupuesto = e =>{
+        setCantidad(parseInt(e.target.value))
+    }
+    const agregarPresupuesto = e =>{
+        e.preventDefault()
+        // Validar
+        if(cantidad < 1 || isNaN(cantidad)){
+            setError(true)
+            return
+        }
+        setError(false)
+        // QUe hacer si pasa la validacion
+        setPresupuesto(cantidad)
+        setRestante(cantidad)
+
+    }
     return (
         <Fragment>
             <h2>Coloca tu presupuesto</h2>
-            <form action="">
+            { error 
+                ? <Error mensaje="Presupuesto Incorrecto"/>
+                : null
+            }
+            <form onSubmit={agregarPresupuesto}>
                 <input 
                     type="number" 
                     name="" 
                     id=""
                     placeholder="Coloca tu presupuesto"
                     className="u-full-width"
+                    onChange={definirPresupuesto}
                 />
                 <input 
                     type="submit" 
