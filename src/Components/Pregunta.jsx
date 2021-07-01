@@ -1,7 +1,7 @@
 import React, { Fragment, useState} from 'react'
 import Error from './Error'
 
-const Pregunta = ({setPresupuesto, setRestante}) => {
+const Pregunta = ({setPresupuesto, setRestante, setMostrarpregunta}) => {
     //Variables
     const [cantidad, setCantidad] = useState(0)
     const [error, setError] = useState(false)
@@ -21,6 +21,7 @@ const Pregunta = ({setPresupuesto, setRestante}) => {
         // QUe hacer si pasa la validacion
         setPresupuesto(cantidad)
         setRestante(cantidad)
+        setMostrarpregunta(false)
 
     }
     return (
