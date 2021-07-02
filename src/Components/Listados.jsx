@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
 import Gasto from './Gasto'
+import PropTypes from 'prop-types'
 
 const Listados = ({gastos}) => {
     return (
@@ -15,5 +16,7 @@ const Listados = ({gastos}) => {
         </Fragment>
     )
 }
-
+Listados.propTypes = {
+    gastos: PropTypes.array.isRequired
+}
 export default Listados

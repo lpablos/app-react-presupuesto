@@ -26,7 +26,7 @@ const App = () => {
       setRestante(presupuestoRestante)
       setCrearGasto(false)
     }
-  }, [gasto])
+  }, [crearGasto, gasto, gastos, restante])
   return (
     <div className="container">
       <header>
