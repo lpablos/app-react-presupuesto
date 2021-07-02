@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 import Error from './Error'
 import shortid from 'shortid'
 
-const Formulario = ({agregarNuevoGasto}) => {
+const Formulario = ({setGasto, setCrearGasto}) => {
     const [nombre, setNombre] = useState('')
     const [cantidad, setCantidad] = useState(0)
     const [error, setError] = useState(false)
@@ -22,7 +22,8 @@ const Formulario = ({agregarNuevoGasto}) => {
             cantidad
         }
         // Pasar le gasto al componente princial
-        agregarNuevoGasto(gasto)
+        setGasto(gasto)
+        setCrearGasto(true)
         // Resetar el formulario
         setNombre('')
         setCantidad(0)
